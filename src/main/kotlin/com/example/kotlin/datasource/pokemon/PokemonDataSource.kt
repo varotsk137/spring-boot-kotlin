@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.client.getForEntity
 import java.io.IOException
+import kotlin.random.Random
 
 @Repository
 class PokemonDataSource(
@@ -21,10 +22,17 @@ class PokemonDataSource(
 
     override fun retrievePokemons(): Collection<PokemonSpecies> {
 
+        val disable = true
+        if (disable) return emptyList()
+
         val pokemonSpeciesList = mutableListOf<PokemonSpecies>()
 
+        val randomCount = Random.nextInt(3, 30)
+        val randomOffsetUpbound = 898 - randomCount
+        val randomOffset = Random.nextInt(1, randomOffsetUpbound)
+
         val response: ResponseEntity<PokemonSpeciesList> =
-            restTemplate.getForEntity("https://pokeapi.co/api/v2/pokemon-species?limit=30&offset=654")
+            restTemplate.getForEntity("https://pokeapi.co/api/v2/pokemon-species?limit=$randomCount&offset=$randomOffset")
 
          response.body?.results ?: throw IOException("Could not fetch data from the network")
 
