@@ -1,7 +1,6 @@
 package com.example.kotlin.controller
 
-import com.example.kotlin.datasource.BankDataSource
-import com.example.kotlin.model.Bank
+import com.example.kotlin.model.entity.Bank
 import com.example.kotlin.service.BankService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

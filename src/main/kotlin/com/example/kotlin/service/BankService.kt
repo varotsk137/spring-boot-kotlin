@@ -1,7 +1,7 @@
 package com.example.kotlin.service
 
 import com.example.kotlin.datasource.BankDataSource
-import com.example.kotlin.model.Bank
+import com.example.kotlin.model.entity.Bank
 import org.springframework.stereotype.Service
 
 @Service

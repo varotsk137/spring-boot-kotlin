@@ -1,4 +1,4 @@
-package com.example.kotlin.model
+package com.example.kotlin.model.entity
 
 // primary constructor
 // default level is public --> exposed default getter / setter publicly

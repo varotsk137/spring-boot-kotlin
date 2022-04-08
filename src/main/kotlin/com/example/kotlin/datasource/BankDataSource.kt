@@ -1,6 +1,6 @@
 package com.example.kotlin.datasource
 
-import com.example.kotlin.model.Bank
+import com.example.kotlin.model.entity.Bank
 
 interface BankDataSource {
 

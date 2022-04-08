@@ -1,6 +1,6 @@
 package com.example.kotlin.controller
 
-import com.example.kotlin.model.Bank
+import com.example.kotlin.model.entity.Bank
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
