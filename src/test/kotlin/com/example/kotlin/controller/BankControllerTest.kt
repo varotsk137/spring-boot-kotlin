@@ -2,10 +2,7 @@ package com.example.kotlin.controller
 
 import com.example.kotlin.model.entity.Bank
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Nested
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.*
 import org.junit.jupiter.api.TestInstance.Lifecycle
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -15,6 +12,7 @@ import org.springframework.test.web.servlet.*
 
 private const val s = "/api/banks"
 
+//@Disabled
 @SpringBootTest // Started application-context (started spring boot app to test)
 @AutoConfigureMockMvc
 internal class BankControllerTest @Autowired constructor( // Inject dependency in constructor
@@ -38,7 +36,7 @@ internal class BankControllerTest @Autowired constructor( // Inject dependency i
                 .andExpect {
                     status { isOk() }
                     content { contentType(APPLICATION_JSON) }
-                    jsonPath("$[0].accountNumber") { value("1234") }
+                    jsonPath("$[0].accountNumber") { value("12345") }
                 }
         }
 
@@ -52,7 +50,7 @@ internal class BankControllerTest @Autowired constructor( // Inject dependency i
         @Test
         fun `should return the bank with the given account number`() {
             // given
-            val accountNumber = 1234
+            val accountNumber = 12345
 
             // when / then
             mockMvc.get("$baseUrl/$accountNumber")
@@ -61,8 +59,8 @@ internal class BankControllerTest @Autowired constructor( // Inject dependency i
                 .andExpect {
                     status { isOk() }
                     content { contentType(APPLICATION_JSON) }
-                    jsonPath("$.trust") { value(3.14) }
-                    jsonPath("$.transactionFee") { value(1) }
+                    jsonPath("$.trust") { value(20.2) }
+                    jsonPath("$.transactionFee") { value(25) }
                 }
         }
 
@@ -141,7 +139,7 @@ internal class BankControllerTest @Autowired constructor( // Inject dependency i
         @Test
         fun `should update an existing bank`() {
             // given
-            val updatedBank = Bank("1234", 1.0, 25)
+            val updatedBank = Bank("12345", 1.0, 25)
 
             // when
             val performPatch = mockMvc.patch(baseUrl) {
@@ -190,7 +188,7 @@ internal class BankControllerTest @Autowired constructor( // Inject dependency i
         @Test
         fun `should delete bank with the given account number`() {
             // given
-            val accountNumber = "1234"
+            val accountNumber = "12345"
 
             // when
             mockMvc.delete("$baseUrl/$accountNumber")
