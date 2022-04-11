@@ -41,6 +41,8 @@ dependencies {
 	implementation("ch.vorburger.mariaDB4j:mariaDB4j-db-win32:10.2.11")
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
 	implementation("mysql:mysql-connector-java:8.0.28")
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
+	implementation("org.springframework.boot:spring-boot-starter-data-redis:2.6.6")
 
 	compileOnly("org.projectlombok:lombok")
 

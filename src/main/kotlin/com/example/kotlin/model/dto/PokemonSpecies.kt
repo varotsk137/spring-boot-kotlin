@@ -1,6 +1,7 @@
 package com.example.kotlin.model.dto
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import java.io.Serializable
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class PokemonSpecies(
@@ -22,33 +23,33 @@ data class PokemonSpecies(
     val generation: Generation,
     val names: Collection<PkmnName>,
 
-    ) {
+    ) : Serializable {
     data class GrowthRate(
         val name: String,
         val url: String
-    )
+    ) : Serializable
 
     data class EggGroup(
         val name: String,
         val url: String
-    )
+    ) : Serializable
 
     data class EvolutionChain(
         val url: String
-    )
+    ) : Serializable
 
     data class Generation(
         val name: String,
         val url: String
-    )
+    ) : Serializable
 
     data class PkmnName(
         val name: String,
         val language: Language
-    )
+    ) : Serializable
 
     data class Language(
         val name: String,
         val url: String
-    )
+    ) : Serializable
 }
